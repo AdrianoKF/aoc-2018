@@ -24,11 +24,9 @@ fn read_input(filename: &str) -> Result<Vec<i32>> {
     f.read_to_string(&mut buf)?;
     let mut result: Vec<i32> = Vec::new();
     for token in buf.lines() {
-        if !token.is_empty() {
-            println!("{}", token);
-            let val: i32 = token.parse().expect("Invalid token!");
-            result.push(val);
-        }
+        println!("{}", token);
+        let val: i32 = token.parse().expect("Invalid token!");
+        result.push(val);
     }
     Ok(result)
 }
