@@ -59,7 +59,7 @@ mod tests {
 
 /// Read the problem set line by line
 fn read_input() -> Result<Vec<String>> {
-    let filename = util::get_filename()?;
+    let filename = util::get_filename().unwrap_or(String::from("input"));
     let mut f = File::open(filename)?;
     let mut buf = String::new();
     f.read_to_string(&mut buf)?;

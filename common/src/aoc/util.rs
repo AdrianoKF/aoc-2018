@@ -1,12 +1,10 @@
 use std::env;
-use std::io::{Error, ErrorKind};
-use std::io::Result;
 
-pub fn get_filename() -> Result<String> {
+pub fn get_filename() -> Option<String> {
     let args: Vec<String> = env::args().collect();
     if args.len() > 1 {
-        Ok(args[1].clone())
+        Some(args[1].clone())
     } else {
-        Err(Error::from(ErrorKind::InvalidInput))
+        None
     }
 }
